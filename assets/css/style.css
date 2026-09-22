@@ -1,0 +1,281 @@
+/* =========================================================
+   ESTILO PADRÃO DO PROJETO — CrudCerto
+   Uma única fonte de verdade para cores, tipografia e
+   componentes (navbar, cards, formulários, botões, tabela).
+   Todas as páginas incluem apenas este arquivo + Bootstrap.
+   ========================================================= */
+
+:root {
+    --cor-fundo-1: #0f172a;
+    --cor-fundo-2: #1e293b;
+    --cor-fundo-3: #334155;
+
+    --cor-primaria: #2563eb;
+    --cor-primaria-2: #06b6d4;
+    --cor-perigo: #dc2626;
+    --cor-perigo-2: #ef4444;
+
+    --cor-texto: #ffffff;
+    --cor-texto-suave: #e2e8f0;
+    --cor-texto-fraco: #cbd5e1;
+
+    --vidro-fundo: rgba(255, 255, 255, 0.08);
+    --vidro-borda: rgba(255, 255, 255, 0.1);
+
+    --raio-grande: 20px;
+    --raio-medio: 12px;
+
+    --fonte-padrao: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    min-height: 100vh;
+}
+
+body {
+    font-family: var(--fonte-padrao);
+    background: linear-gradient(135deg, var(--cor-fundo-1), var(--cor-fundo-2), var(--cor-fundo-3));
+    color: var(--cor-texto);
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* ---------- Navbar (menu.php) ---------- */
+
+.navbar-padrao {
+    background: rgba(15, 23, 42, 0.9);
+    border-bottom: 1px solid var(--vidro-borda);
+    padding: 16px 24px;
+}
+
+.navbar-padrao .navbar-brand {
+    color: var(--cor-texto);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.navbar-padrao .nav-link {
+    color: var(--cor-texto-suave) !important;
+    font-weight: 600;
+    margin: 0 8px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.navbar-padrao .nav-link:hover,
+.navbar-padrao .nav-link.active {
+    color: #fff !important;
+}
+
+/* ---------- Cartão "vidro" (usado em formulários e relatório) ---------- */
+
+.cartao-vidro {
+    width: 100%;
+    background: var(--vidro-fundo);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--vidro-borda);
+    border-radius: var(--raio-grande);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    padding: 35px;
+}
+
+.cartao-vidro.cartao-estreito {
+    max-width: 500px;
+}
+
+.cartao-vidro h2 {
+    color: var(--cor-texto);
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* ---------- Formulários ---------- */
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label,
+.form-label {
+    display: block;
+    color: var(--cor-texto-suave);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.campo input,
+.campo select,
+.form-control {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid transparent;
+    border-radius: var(--raio-medio);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--cor-texto);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.campo input:focus,
+.campo select:focus,
+.form-control:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+    color: var(--cor-texto);
+}
+
+.alerta-erro {
+    background: rgba(239, 68, 68, 0.2);
+    color: #fecaca;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* ---------- Botões padronizados ---------- */
+
+.btn-gradiente,
+.btn-gradiente:visited {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: var(--raio-medio);
+    background: linear-gradient(45deg, var(--cor-primaria), var(--cor-primaria-2));
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-gradiente:hover {
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-gradiente:active {
+    transform: scale(0.98);
+}
+
+.btn-gradiente.btn-auto {
+    width: auto;
+    padding: 10px 22px;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.btn-gradiente.btn-sm {
+    width: auto;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.btn-perigo {
+    background: linear-gradient(45deg, var(--cor-perigo), var(--cor-perigo-2));
+}
+
+.btn-contorno {
+    display: inline-block;
+    width: 100%;
+    padding: 13px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--raio-medio);
+    background: transparent;
+    color: var(--cor-texto);
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn-contorno:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* ---------- Relatório / Tabela ---------- */
+
+.tabela-container {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.tabela-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+table.tabela-padrao {
+    width: 100%;
+    color: var(--cor-texto);
+    border-collapse: collapse;
+}
+
+table.tabela-padrao thead th {
+    background: rgba(59, 130, 246, 0.25);
+    color: #fff;
+    text-align: left;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--vidro-borda);
+}
+
+table.tabela-padrao tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    vertical-align: middle;
+}
+
+table.tabela-padrao tbody tr:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.tabela-vazia {
+    color: var(--cor-texto-fraco);
+    text-align: center;
+    padding: 20px;
+}
+
+.acoes {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.table-responsive-padrao {
+    overflow-x: auto;
+}
